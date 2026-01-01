@@ -1,0 +1,469 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Careers | NTEK Solutions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Bootstrap -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-icons/1.11.1/font/bootstrap-icons.min.css"
+        rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="career.css">
+</head>
+
+<body>
+
+    <!-- ================= HERO ================= -->
+ <section class="careers-hero text-center position-relative">
+    <!-- Home Button -->
+    <a href="index.html" class="btn btn-light btn-sm home-btn">
+        <i class="bi bi-house-door me-1"></i> Home
+    </a>
+
+    <div class="container">
+        <h1 class="display-4 fw-bold mb-3">Careers & Opportunities</h1>
+        <p class="lead">
+            Hire skilled professionals or find jobs that match your expertise.
+        </p>
+    </div>
+</section>
+
+
+    <!-- ================= FILTER BAR ================= -->
+    <section class="py-4 bg-light">
+        <div class="container">
+            <div class="row g-3">
+
+                <div class="col-md-4">
+                    <input id="searchInput" class="form-control" placeholder="Search by role or skill">
+                </div>
+
+                <div class="col-md-4">
+                    <select id="skillFilter" class="form-select">
+                        <option value="">All Skills</option>
+                        <option value="java">Java</option>
+                        <option value="react">React</option>
+                        <option value="python">Python</option>
+                        <option value="devops">DevOps</option>
+                        <option value="sap">SAP</option>
+                    </select>
+                </div>
+
+                <div class="col-md-4">
+                    <select id="locationFilter" class="form-select">
+                        <option value="">All Locations</option>
+                        <option value="hyderabad">Hyderabad</option>
+                        <option value="bangalore">Bangalore</option>
+                        <option value="remote">Remote</option>
+                    </select>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- ================= EMPLOYEE PROFILES ================= -->
+    <section class="py-5">
+        <div class="container">
+
+            <h2 class="fw-bold text-center mb-4">For Companies – Employee Profiles</h2>
+
+            <div class="row g-4" id="employeeGrid"></div>
+            <div class="d-flex justify-content-center mt-4" id="employeePagination"></div>
+
+        </div>
+    </section>
+
+
+
+    <!-- ================= JOBS ================= -->
+    <section class="py-5 bg-light">
+        <div class="container">
+
+            <h2 class="fw-bold text-center mb-4">For Job Seekers – Open Positions</h2>
+
+            <div class="row g-4" id="jobGrid"></div>
+            <div class="d-flex justify-content-center mt-4" id="jobPagination"></div>
+
+        </div>
+    </section>
+
+
+
+    <!-- ================= PROFILE MODAL ================= -->
+    <div class="modal fade" id="profileModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profileTitle"></h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <p><strong>Experience:</strong> 5+ Years</p>
+                    <p><strong>Availability:</strong> Immediate</p>
+                    <p><strong>Summary:</strong> Pre-vetted professional with enterprise project experience.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= APPLY MODAL ================= -->
+    <div class="modal fade" id="applyModal" tabindex="-1">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="jobTitle"></h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input type="text" class="form-control mb-3" placeholder="Full Name" required>
+                        <input type="email" class="form-control mb-3" placeholder="Email" required>
+                        <input type="file" class="form-control mb-3" required>
+                        <button class="btn btn-primary w-100">Submit Application</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- =================  MODALS (SHARED) ================= -->
+    <div class="modal fade" id="detailModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modalTitle"></h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body" id="modalBody"></div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ================= APPLY JOB MODAL ================= -->
+    <div class="modal fade" id="applyJobModal" tabindex="-1">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="applyJobTitle"></h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <form>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="First Name" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <input type="text" class="form-control" placeholder="Last Name" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <input type="tel" class="form-control" placeholder="Mobile Number" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <input type="email" class="form-control" placeholder="Email Address" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <input type="number" class="form-control" placeholder="Expected Salary" required>
+                            </div>
+
+                            <div class="col-md-6">
+                                <input type="file" class="form-control" required>
+                            </div>
+
+                            <div class="col-12">
+                                <button type="submit" class="btn btn-primary w-100 mt-3">
+                                    Submit Application
+                                </button>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ================= VIEW CANDIDATES MODAL ================= -->
+    <div class="modal fade" id="candidatesModal" tabindex="-1">
+        <div class="modal-dialog modal-xl modal-dialog-centered modal-dialog-scrollable">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <h5 class="modal-title" id="candidatesModalTitle"></h5>
+                    <button class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                    <div class="row g-4" id="candidatesList">
+                        <!-- candidates injected via JS -->
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.bundle.min.js"></script>
+
+    <!-- ================= PAGE JS ================= -->
+    <script>
+        /* =====================================================
+           CONFIG
+        ===================================================== */
+        const PAGE_SIZE = 6;
+
+        /* =====================================================
+           DATA
+        ===================================================== */
+        const employeeProfiles = [
+            { title: "Java Full Stack Developer", exp: "5+ Years", skills: "Java, Spring, React", location: "hyderabad", desc: "Enterprise application developer" },
+            { title: "React Developer", exp: "4+ Years", skills: "React, JavaScript", location: "bangalore", desc: "Frontend specialist" },
+            { title: "DevOps Engineer", exp: "6+ Years", skills: "AWS, Docker, Kubernetes", location: "remote", desc: "Cloud infrastructure engineer" },
+            { title: "Python Data Engineer", exp: "5+ Years", skills: "Python, Spark, SQL", location: "hyderabad", desc: "Big data pipelines" },
+            { title: "SAP FICO Consultant", exp: "8+ Years", skills: "SAP S/4HANA", location: "bangalore", desc: "Finance transformation expert" },
+            { title: "Cloud Architect", exp: "10+ Years", skills: "AWS, Azure", location: "remote", desc: "Cloud strategy leader" },
+            { title: "QA Automation Engineer", exp: "4+ Years", skills: "Selenium, Cypress", location: "hyderabad", desc: "Automation testing" },
+            { title: "UI/UX Designer", exp: "6+ Years", skills: "Figma, UX", location: "bangalore", desc: "Design systems expert" },
+            { title: "Business Analyst", exp: "7+ Years", skills: "Agile, Jira", location: "remote", desc: "Requirement analysis" },
+            { title: "Cyber Security Analyst", exp: "5+ Years", skills: "SIEM, SOC", location: "hyderabad", desc: "Security operations" }
+        ];
+
+        const candidatesByRole = {
+            "Java Full Stack Developer": [
+                { name: "Ravi Kumar", exp: "5 yrs", skills: "Java, Spring, React", location: "Hyderabad" },
+                { name: "Anil Sharma", exp: "6 yrs", skills: "Java, Microservices", location: "Bangalore" },
+                { name: "Suresh Reddy", exp: "4 yrs", skills: "Java, Angular", location: "Pune" }
+            ],
+
+            "React Developer": [
+                { name: "Priya Mehta", exp: "4 yrs", skills: "React, Redux", location: "Remote" },
+                { name: "Neha Jain", exp: "5 yrs", skills: "React, Next.js", location: "Bangalore" }
+            ],
+
+            "DevOps Engineer": [
+                { name: "Karthik Rao", exp: "6 yrs", skills: "AWS, Docker, Kubernetes", location: "Hyderabad" },
+                { name: "Amit Verma", exp: "7 yrs", skills: "Azure, CI/CD", location: "Remote" }
+            ],
+
+            "Python Data Engineer": [
+                { name: "Rahul Singh", exp: "5 yrs", skills: "Python, Spark, SQL", location: "Bangalore" },
+                { name: "Sneha Iyer", exp: "4 yrs", skills: "Python, ETL", location: "Hyderabad" }
+            ]
+        };
+
+
+        const jobListings = [
+            { title: "React Developer", type: "Full-Time", skills: "React", location: "remote", desc: "Frontend role" },
+            { title: "Java Backend Engineer", type: "Full-Time", skills: "Java, Spring", location: "hyderabad", desc: "Backend APIs" },
+            { title: "DevOps Engineer", type: "Contract", skills: "AWS", location: "bangalore", desc: "CI/CD pipelines" },
+            { title: "Python Engineer", type: "Full-Time", skills: "Python", location: "remote", desc: "Data services" },
+            { title: "SAP MM Consultant", type: "Full-Time", skills: "SAP", location: "hyderabad", desc: "SAP logistics" },
+            { title: "Cloud Engineer", type: "Contract", skills: "AWS", location: "bangalore", desc: "Cloud operations" },
+            { title: "UI Developer", type: "Full-Time", skills: "React", location: "remote", desc: "UI components" },
+            { title: "QA Tester", type: "Full-Time", skills: "Selenium", location: "hyderabad", desc: "Testing role" },
+            { title: "Product Owner", type: "Full-Time", skills: "Agile", location: "remote", desc: "Product ownership" },
+            { title: "Scrum Master", type: "Full-Time", skills: "Agile", location: "bangalore", desc: "Scrum facilitation" }
+        ];
+
+        /* =====================================================
+           STATE
+        ===================================================== */
+        let employeePage = 0;
+        let jobPage = 0;
+
+        /* =====================================================
+           FILTERING
+        ===================================================== */
+        function getFilters() {
+            return {
+                search: document.getElementById("searchInput").value.toLowerCase(),
+                skill: document.getElementById("skillFilter").value,
+                location: document.getElementById("locationFilter").value
+            };
+        }
+
+        function applyFilters(data) {
+            const { search, skill, location } = getFilters();
+
+            return data.filter(item =>
+                (!skill || item.skills.toLowerCase().includes(skill)) &&
+                (!location || item.location === location) &&
+                item.title.toLowerCase().includes(search)
+            );
+        }
+
+        /* =====================================================
+           RENDERING
+        ===================================================== */
+      function renderCards(data, gridId, page, isJob = false) {
+  const grid = document.getElementById(gridId);
+  grid.innerHTML = "";
+
+  const start = page * PAGE_SIZE;
+  const pagedData = data.slice(start, start + PAGE_SIZE);
+
+  pagedData.forEach(item => {
+    grid.innerHTML += `
+      <div class="col-md-4">
+        <div class="career-card">
+          <h5>${item.title}</h5>
+          <p class="meta">${isJob ? item.type : item.exp} • ${item.location}</p>
+          <p><strong>Skills:</strong> ${item.skills}</p>
+          <p class="small text-muted">${item.desc}</p>
+
+          ${
+            isJob
+              ? `<button class="btn btn-primary w-100"
+                   onclick="openApplyJobModal('${item.title}')">
+                   Apply
+                 </button>`
+              : `<button class="btn btn-primary w-100"
+                   onclick="openCandidatesModal('${item.title}')">
+                   View Candidates
+                 </button>`
+          }
+
+        </div>
+      </div>`;
+  });
+}
+
+
+        function renderPagination(data, containerId, currentPage, onClickFn) {
+            const pages = Math.ceil(data.length / PAGE_SIZE);
+            const container = document.getElementById(containerId);
+            container.innerHTML = "";
+
+            for (let i = 0; i < pages; i++) {
+                container.innerHTML += `
+      <button class="mx-1 ${i === currentPage ? 'active' : ''}"
+        onclick="${onClickFn}(${i})">${i + 1}</button>`;
+            }
+        }
+
+        /* =====================================================
+           UPDATE FUNCTIONS
+        ===================================================== */
+        function updateEmployees() {
+            const filtered = applyFilters(employeeProfiles);
+            renderCards(filtered, "employeeGrid", employeePage);
+            renderPagination(filtered, "employeePagination", employeePage, "setEmployeePage");
+        }
+
+        function updateJobs() {
+            const filtered = applyFilters(jobListings);
+            renderCards(filtered, "jobGrid", jobPage, true);
+            renderPagination(filtered, "jobPagination", jobPage, "setJobPage");
+        }
+
+        /* =====================================================
+           PAGE SETTERS
+        ===================================================== */
+        function setEmployeePage(page) {
+            employeePage = page;
+            updateEmployees();
+        }
+
+        function setJobPage(page) {
+            jobPage = page;
+            updateJobs();
+        }
+
+        /* =====================================================
+           MODAL
+        ===================================================== */
+        function openDetailModal(title, location, skills, desc) {
+            document.getElementById("modalTitle").innerText = title;
+            document.getElementById("modalBody").innerHTML = `
+    <p><strong>Location:</strong> ${location}</p>
+    <p><strong>Skills:</strong> ${skills}</p>
+    <p>${desc}</p>`;
+            new bootstrap.Modal(document.getElementById("detailModal")).show();
+        }
+
+        function openApplyJobModal(jobTitle) {
+            document.getElementById("applyJobTitle").innerText =
+                `Apply for ${jobTitle}`;
+
+            new bootstrap.Modal(
+                document.getElementById("applyJobModal")
+            ).show();
+        }
+
+        function openCandidatesModal(roleTitle) {
+            const list = document.getElementById("candidatesList");
+            const title = document.getElementById("candidatesModalTitle");
+
+            title.innerText = `Available Candidates – ${roleTitle}`;
+            list.innerHTML = "";
+
+            const candidates = candidatesByRole[roleTitle] || [];
+
+            if (candidates.length === 0) {
+                list.innerHTML = `<p class="text-muted">No candidates available for this role.</p>`;
+            } else {
+                candidates.forEach(c => {
+                    list.innerHTML += `
+        <div class="col-md-4">
+          <div class="career-card">
+            <h6 class="fw-bold mb-1">${c.name}</h6>
+            <p class="small text-muted mb-1">${c.exp} Experience</p>
+            <p class="small mb-1"><strong>Skills:</strong> ${c.skills}</p>
+            <p class="small"><strong>Location:</strong> ${c.location}</p>
+            <button class="btn btn-sm btn-primary w-100 mt-2">
+              Request Interview
+            </button>
+          </div>
+        </div>
+      `;
+                });
+            }
+
+            new bootstrap.Modal(
+                document.getElementById("candidatesModal")
+            ).show();
+        }
+
+
+
+        /* =====================================================
+           INIT
+        ===================================================== */
+        ["searchInput", "skillFilter", "locationFilter"].forEach(id => {
+            document.getElementById(id).addEventListener("input", () => {
+                employeePage = 0;
+                jobPage = 0;
+                updateEmployees();
+                updateJobs();
+            });
+        });
+
+        updateEmployees();
+        updateJobs();
+    </script>
+
+
+</body>
+
+</html>

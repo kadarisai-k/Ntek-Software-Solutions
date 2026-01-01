@@ -1,0 +1,174 @@
+/* USA Theme Colors */
+:root {
+    --usa-blue: #0a3161;
+    --usa-red: #b31942;
+    --usa-gray: #f8f9fa;
+}
+
+/* NAVBAR STICKY & SOLID */
+.fancy-navbar.sticky-top {
+    background-color: #ffffff !important;
+    border-bottom: 3px solid var(--usa-blue);
+    transition: all 0.3s ease;
+}
+
+.brand-logo { height: 70px; width: auto; }
+
+/* HERO BACKGROUND */
+#usa-hero {
+    background: linear-gradient(rgba(0, 43, 91, 0.8), rgba(0, 0, 0, 0.7)), 
+                url('https://images.unsplash.com/photo-1485738422979-f5c462d49f74?q=80&w=2070&auto=format&fit=crop');
+    background-size: cover;
+    background-position: center;
+    min-height: 85vh;
+}
+
+/* NEW PROCESS SECTION STYLES */
+.process-step {
+    width: 60px;
+    height: 60px;
+    background-color: var(--usa-blue);
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 5px solid #eef2f7;
+    position: relative;
+    z-index: 2;
+}
+
+/* Connective lines for desktop */
+@media (min-width: 768px) {
+    .col-md-3 { position: relative; }
+    .col-md-3:not(:last-child)::after {
+        content: '';
+        position: absolute;
+        top: 60px;
+        left: 60%;
+        width: 80%;
+        height: 2px;
+        border-top: 2px dashed #ccc;
+        z-index: 1;
+    }
+}
+
+/* GLOBAL HELPERS */
+.ls-2 { letter-spacing: 2px; }
+.btn-primary { background-color: var(--usa-blue) !important; border: none !important; }
+.btn-danger { background-color: var(--usa-red) !important; border: none !important; }
+.text-primary { color: var(--usa-blue) !important; }
+
+/* ANIMATIONS */
+.animate-fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeUp 0.8s ease forwards;
+}
+.delay-100 { animation-delay: 0.1s; }
+.delay-200 { animation-delay: 0.2s; }
+.delay-300 { animation-delay: 0.3s; }
+
+@keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Service Card Hover */
+.card {
+    transition: all 0.3s ease;
+}
+.card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,0.15) !important;
+}
+
+/* Logo Sizing */
+.brand-logo {
+    height: 60px;
+    width: auto;
+    object-fit: contain;
+}
+/* FORCE SOLID STICKY NAVBAR */
+.fancy-navbar.sticky-top {
+    top: 0;
+    width: 100%;
+    z-index: 1030; /* Ensures it stays above all other content */
+    background-color: #ffffff !important; /* Change to your preferred hex code */
+    border-bottom: 1px solid #eaeaea; /* Optional: adds a subtle line at the bottom */
+    transition: all 0.3s ease-in-out;
+}
+
+/* Ensure the body has no top-gap issues */
+body {
+    position: relative;
+}
+
+/* Optional: If you want the navbar to be slightly transparent but blur the content behind it */
+.fancy-navbar.sticky-top {
+    background-color: rgba(255, 255, 255, 0.95) !important;
+    backdrop-filter: blur(10px); /* This gives a high-end modern glass effect */
+}
+
+
+/* ================= USA FOOTER STYLES ================= */
+
+.footer-section {
+    background-color: #111111; /* Dark professional background */
+    border-top: 4px solid #0a3161; /* Navy Blue Accent Top Border */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.footer-title {
+    font-size: 1.1rem;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.footer-list li {
+    margin-bottom: 10px;
+}
+
+.footer-link {
+    color: rgba(255, 255, 255, 0.6);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    font-size: 0.9rem;
+}
+
+.footer-link:hover {
+    color: #ffc107; /* Warning yellow hover */
+    padding-left: 5px;
+}
+
+.footer-text {
+    color: rgba(255, 255, 255, 0.6);
+    font-size: 0.9rem;
+}
+
+.footer-logo-box .footer-logo {
+    transition: transform 0.3s ease;
+}
+
+.footer-logo-box:hover .footer-logo {
+    transform: scale(1.05);
+}
+
+.social-link {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.social-link:hover {
+    opacity: 1;
+    color: #ffc107 !important;
+}
+
+/* Ensure footer icons match the USA Red accent */
+.footer-section .bi {
+    color: #b31942 !important; /* USA Red */
+}

@@ -1,0 +1,225 @@
+/* Define Variables for Australia Page */
+:root {
+    --au-primary: #1976d2; /* Navy Blue */
+    --au-accent: #dc3545; /* Red/Danger */
+    --au-dark: #212529;
+    --au-success: #198754;
+    --au-light: #f8f9fa;
+}
+
+/* --- BASE AUSTRALIA STYLES --- */
+
+.au-navbar {
+    background-color: var(--au-light) !important;
+    border-color: #dee2e6 !important;
+}
+
+/* ================= AUSTRALIA NAVBAR FIX ================= */
+
+/* Force solid navbar background */
+.fancy-navbar {
+    background-color: #ffffff !important;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+}
+
+/* Match India navbar height */
+.fancy-navbar .container-fluid {
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+/* Logo size consistency */
+/* ================= AUSTRALIA LOGO SIZE ================= */
+
+.brand-logo {
+    height: 80px;      /* increased from 80px */
+    width: auto;
+    object-fit: contain;
+}
+
+
+/* Align brand box properly */
+.brand-box {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+/* AU badge alignment */
+.brand-box .badge {
+    font-size: 0.7rem;
+    padding: 4px 6px;
+}
+
+
+/* Hero Section */
+#au-hero {
+    background-color: #f0f8ff; /* Very light blue background */
+    min-height: 80vh;
+}
+
+#au-hero .text-primary {
+    color: var(--au-primary) !important;
+}
+#au-hero .text-danger {
+    color: var(--au-accent) !important;
+}
+
+.hero-graphic-box {
+    background-color: white;
+    border: 1px solid #e9ecef;
+    min-height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Why Choose Us Feature Cards */
+.au-feature-card {
+    background-color: white;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.au-feature-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,.175) !important;
+}
+
+/* Expertise Section Boxes */
+.expertise-box {
+    background-color: white;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
+}
+
+.expertise-box:hover {
+    background-color: var(--au-dark);
+    color: white !important;
+    border-color: var(--au-dark) !important;
+}
+.expertise-box:hover h4, 
+.expertise-box:hover p {
+    color: white !important;
+}
+.expertise-box:hover i {
+    color: var(--au-accent) !important;
+}
+
+/* Locations Section */
+#cities .city-badge {
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+#cities .city-badge:hover {
+    transform: scale(1.05);
+}
+
+/* --- MAP IMAGE STYLES --- */
+.map-graphic {
+    min-height: 400px;
+    background-color: var(--au-light) !important;
+    border: 1px solid #dee2e6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* Added internal padding and removed old SVG styles */
+    padding: 20px; 
+    overflow: hidden; 
+}
+
+.au-map-image { 
+    max-width: 100%;
+    height: auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transition: transform 0.4s ease-in-out;
+}
+
+.au-map-image:hover {
+    transform: scale(1.05); 
+}
+/* --- END MAP IMAGE STYLES --- */
+
+
+/* --- NEW THINGS (TaaS) STYLES --- */
+.taasc-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.taasc-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+/* --- END NEW THINGS STYLES --- */
+
+
+/* Contact Form Styling */
+.contact-form-box {
+    background-color: var(--au-light) !important;
+    border: 1px solid #dee2e6;
+}
+
+/* Apply Australia colors to Bootstrap classes used */
+.btn-primary {
+    background-color: var(--au-primary) !important;
+    border-color: var(--au-primary) !important;
+}
+.btn-danger, .badge.bg-danger {
+    background-color: var(--au-accent) !important;
+    border-color: var(--au-accent) !important;
+}
+.text-primary {
+    color: var(--au-primary) !important;
+}
+.text-danger {
+    color: var(--au-accent) !important;
+}
+
+/* ================= AUSTRALIA FOOTER ================= */
+
+.footer-section {
+    background-color: #1a1a1a;
+    border-top: 3px solid var(--au-accent);
+}
+
+.footer-title {
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: #ffffff;
+}
+
+.footer-list li {
+    margin-bottom: 8px;
+}
+
+.footer-link {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--au-accent);
+    padding-left: 5px;
+}
+
+.footer-logo {
+    height: 55px;
+}
+
+.social-link {
+    color: rgba(255,255,255,0.8);
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.social-link:hover {
+    color: var(--au-accent);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    background: rgba(0,0,0,0.3);
+}

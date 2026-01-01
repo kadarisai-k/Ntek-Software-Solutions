@@ -1,0 +1,264 @@
+/* Define Variables for Europe Page (Deep Green and Gold) */
+:root {
+    --eu-primary: #006400; /* Deep Green */
+    --eu-accent: #FFD700; /* Gold */
+    --eu-dark: #2c3e50; /* Dark Charcoal (Used for Staffing Section) */
+    --eu-light: #f4f6f9; /* Off-White (Used for background/cards) */
+    --eu-darker: #1c2833; /* Even darker for Consultancy section */
+}
+
+/* --- BASE EUROPE STYLES --- */
+
+body {
+    background-color: white; /* Ensure body is white for contrast */
+}
+
+/* --- REMOVE NAVBAR LOGO WHITE BOX --- */
+/* --- UPDATED NAVBAR LOGO --- */
+/* --- REMOVE NAVBAR LOGO WHITE BOX --- */
+/* --- CLEAN LOGO FIX FOR INDIA (NO WHITE BOX / NO DARKNESS) --- */
+.brand-box {
+    background: transparent !important;
+    padding: 0 !important;
+    display: flex;
+    align-items: center;
+    border: none !important;
+    text-decoration: none;
+}
+
+.brand-logo {
+    height: 65px; /* Maintain visibility */
+    width: auto;
+    background: transparent !important;
+    
+    /* 1. Remove the darkening blend mode */
+    mix-blend-mode: normal !important; 
+
+    /* 2. Professional filter to make the logo pop and clean the white edges */
+    /* Contrast(1.1) sharpens text, Brightness(1.05) keeps colors accurate */
+    filter: contrast(1.1) brightness(1.05);
+
+    /* 3. If the white box persists because it's a JPEG, 
+          this specific filter helps 'wash out' the white background 
+          if the navbar is light/white */
+    outline: none;
+    border: none;
+}
+
+
+/* New darker background for the Consultancy section */
+.bg-darker-eu {
+    background-color: var(--eu-darker) !important;
+}
+
+/* Dark Navbar with Gold Border */
+.eu-navbar {
+    background-color: var(--eu-darker) !important; /* Made navbar darker */
+    border-bottom: 2px solid var(--eu-accent);
+}
+
+.eu-navbar .nav-link,
+.eu-navbar .brand-title,
+.eu-navbar .brand-tagline {
+    color: white !important;
+}
+.eu-navbar .accent {
+    color: var(--eu-accent) !important;
+}
+
+/* Hero Section: Clean Split Design */
+#eu-hero {
+    background-color: white;
+    min-height: 80vh;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+}
+#eu-hero .text-primary {
+    color: var(--eu-primary) !important;
+}
+
+.hero-stats-box {
+    background-color: var(--eu-light);
+    border-left: 5px solid var(--eu-primary);
+    transition: transform 0.3s ease;
+}
+.hero-stats-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+/* Staffing Section (Dark background) */
+#staffing {
+    background-color: var(--eu-dark);
+    color: white;
+}
+.compliance-icon-box {
+    color: var(--eu-accent);
+}
+
+/* Expertise Section (New Card Hover) */
+#expertise-eu .expertise-box {
+    border: 1px solid #ddd;
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+#expertise-eu .expertise-box:hover {
+    border-color: var(--eu-primary);
+    box-shadow: 0 4px 10px rgba(0, 100, 0, 0.1);
+    transform: translateY(-3px);
+}
+#expertise-eu .expertise-box i {
+    color: var(--eu-primary);
+}
+
+/* Consultancy Section List */
+.consultancy-list li {
+    padding: 5px 0;
+}
+
+/* Styling for the info box in the Consultancy section */
+.consultancy-info-box {
+    background-color: var(--eu-dark); /* Dark Charcoal background */
+    color: white;
+    border-left: 5px solid var(--eu-accent); /* Gold accent border */
+}
+
+/* Global Reach Section (Locations/Hubs) */
+#global-reach {
+    background-color: var(--eu-light);
+}
+
+/* Map container styling */
+.map-graphic-eu {
+    background-color: white;
+    border: 1px solid #ddd;
+    /* Added transition for smooth hover effect */
+    transition: all 0.3s ease; 
+}
+.map-graphic-eu img {
+    max-height: 400px;
+    width: auto;
+}
+
+/* New Hover effect for the map container */
+.map-graphic-eu:hover {
+    transform: translateY(-5px); /* Lift the map */
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3); /* Stronger shadow */
+    border-color: var(--eu-accent); /* Highlight border */
+    border-width: 2px;
+}
+
+
+.city-list-box {
+    border-bottom: 3px solid var(--eu-primary);
+    background-color: white;
+    transition: all 0.3s ease;
+}
+
+/* Enhanced Hover Effect for City Boxes */
+.city-list-box:hover {
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15); 
+    border-bottom-color: var(--eu-accent);
+    background-color: var(--eu-primary); 
+    transform: translateY(-5px); 
+}
+/* Change text color inside the box on hover */
+.city-list-box:hover h4 {
+    color: white !important;
+}
+.city-list-box:hover p {
+    color: var(--eu-accent) !important;
+}
+
+/* Contact Form Styling */
+#contact-eu {
+    background-color: white;
+}
+.contact-form-box {
+    border: 1px solid #eee;
+    background-color: var(--eu-light) !important;
+}
+
+/* Footer */
+.eu-footer {
+    background-color: var(--eu-darker); /* Made footer darker */
+}
+
+/* Apply Europe colors to Bootstrap classes used */
+.btn-primary {
+    background-color: var(--eu-primary) !important;
+    border-color: var(--eu-primary) !important;
+    color: white !important;
+}
+.btn-outline-primary {
+    border-color: var(--eu-primary) !important;
+    color: var(--eu-primary) !important;
+}
+.btn-outline-primary:hover {
+    background-color: var(--eu-primary) !important;
+    color: white !important;
+}
+.text-primary {
+    color: var(--eu-primary) !important;
+}
+.text-accent {
+    color: var(--eu-accent) !important;
+}
+.bg-primary {
+    background-color: var(--eu-primary) !important;
+}
+.bg-accent {
+    background-color: var(--eu-accent) !important;
+}
+
+/* ================= EUROPE FOOTER (GLOBAL STYLE) ================= */
+
+.footer-section {
+    background-color: var(--eu-darker);
+    border-top: 3px solid var(--eu-accent);
+}
+
+.footer-title {
+    font-weight: 700;
+    margin-bottom: 14px;
+    color: #ffffff;
+}
+
+.footer-list li {
+    margin-bottom: 8px;
+}
+
+.footer-link {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.footer-link:hover {
+    color: var(--eu-accent);
+    padding-left: 5px;
+}
+
+.footer-logo {
+    height: 55px;
+}
+
+.social-link {
+    color: rgba(255,255,255,0.8);
+    font-size: 1.2rem;
+    transition: 0.3s;
+}
+
+.social-link:hover {
+    color: var(--eu-accent);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    background: rgba(0,0,0,0.3);
+}
+
+
+
+
